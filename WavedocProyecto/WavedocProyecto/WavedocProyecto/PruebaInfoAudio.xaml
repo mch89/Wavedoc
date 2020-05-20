@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewmodel="clr-namespace:WaveDock_Xamarin.ViewModels"
+             x:Class="WavedocProyecto.MainPage">
+
+  
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="DarkSlateGray">
+            <StackLayout.BindingContext>
+                <viewmodel:InfoCancionAudioView></viewmodel:InfoCancionAudioView>
+            </StackLayout.BindingContext>
+            <Label Text="Busqueda Por Letra"
+                   FontSize="40"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry Text="{Binding entrada,Mode=TwoWay}"/>
+            <Button Command="{Binding MostrarCanciones}" Text="Mostrar canciones" HorizontalOptions="FillAndExpand"/>
+            <ListView  RowHeight="80" ItemsSource="{Binding Tabla.Result}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout  Orientation="Vertical">
+                                    <Label Text="{Binding count}" FontSize="15" TextColor="Red"></Label>
+                                    <ListView ItemsSource="{Binding list}" RowHeight="200">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell >
+                                                    <StackLayout>
+                                                        <Label Text="{Binding score,StringFormat='Score : {0} '}"></Label>
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    <Label></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
