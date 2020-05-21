@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace WavedocProyecto
 {
     public partial class App : Application
@@ -10,8 +11,9 @@ namespace WavedocProyecto
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
             //MainPage = new MainMasterPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
