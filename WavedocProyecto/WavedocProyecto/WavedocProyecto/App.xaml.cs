@@ -11,9 +11,9 @@ namespace WavedocProyecto
         {
             InitializeComponent();
 
-            //MainPage = new MainPage();
-            //MainPage = new MainMasterPage();
             MainPage = new MainPage();
+            //MainPage = new MainMasterPage();
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()
